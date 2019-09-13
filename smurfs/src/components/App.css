@@ -32,6 +32,22 @@ form{
   justify-content: space-around;
 }
 
+form button {
+  cursor: pointer;
+  background: #88CCFF;
+  border:1px solid white;
+  border-radius:8px;
+  padding: 1%  2%;
+  cursor:pointer;
+}
+
+form button:hover {
+  color:black;
+  background: white;
+  border:1px solid #88CCFF;
+}
+
+
 .smurf-container{
   display:flex;
   flex-wrap: wrap;
