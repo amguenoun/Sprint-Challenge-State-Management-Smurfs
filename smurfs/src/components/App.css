@@ -2,27 +2,81 @@
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+.app-head{
+  background:white;
+  width:80%;
+  margin:2% auto;
+  border:1px solid black;
+  border-radius: 8px;
+  padding-bottom: 2%;
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
+.edit-div{
+  background:white;
+  width:60%;
+  margin:0 auto;
+  padding:1% 0%;
+  display:flex;
+  border:1px solid black;
+  border-radius:8px;
 }
 
-.App-title {
-  font-size: 1.5em;
+.edit-div form{
+  width: 60%;
 }
 
-.App-intro {
-  font-size: large;
+form{
+  display:flex;
+  width: 45%;
+  margin:0 auto;
+  justify-content: space-around;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+form button {
+  cursor: pointer;
+  background: #88CCFF;
+  border:1px solid white;
+  border-radius:8px;
+  padding: 1%  2%;
+  cursor:pointer;
+}
+
+form button:hover {
+  color:black;
+  background: white;
+  border:1px solid #88CCFF;
+}
+
+
+.smurf-container{
+  display:flex;
+  flex-wrap: wrap;
+  width:80%;
+  margin:1% auto;
+  justify-content: space-around;
+}
+
+.smurf-container div{
+  width:24%;
+  border: 1px solid black;
+  border-radius: 8px;
+  margin:.5% 0%;
+  padding-bottom: 1%;
+  background:white;
+}
+
+.smurf-container button {
+  color:black;
+  background: #88CCFF;
+  border:1px solid white;
+  margin: 0% 2%;
+  padding:1% 4%;
+  border-radius:8px;
+  cursor:pointer;
+}
+
+.smurf-container button:hover {
+  color:black;
+  background: white;
+  border:1px solid #88CCFF;
 }
