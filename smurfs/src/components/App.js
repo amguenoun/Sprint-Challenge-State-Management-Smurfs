@@ -8,9 +8,12 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <h1>SMURFS Village List.</h1>
-        <div>Create your own Smurf Village and watch as the residents appear on your list!</div>
-        <SmurfForm />
+        <div className='app-head'>
+          <h1>SMURFS Village List.</h1>
+          <p>Create your own Smurf Village and watch as the residents appear on your list!</p>
+          <SmurfForm />
+        </div>
+
         <SmurfList />
       </div>
     );

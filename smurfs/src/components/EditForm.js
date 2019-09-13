@@ -23,7 +23,7 @@ const EditForm = (props) => {
         setSmurf(props.editSmurf);
     }
     return (
-        <div>
+        <div className='edit-div'>
             <form onSubmit={handleSubmit}>
                 <input type='text' value={smurf.name} name='name' onChange={handleChange} placeholder='Name' />
                 <input type='text' value={smurf.age} name='age' onChange={handleChange} placeholder='Age' />
