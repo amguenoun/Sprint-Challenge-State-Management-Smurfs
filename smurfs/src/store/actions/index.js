@@ -30,3 +30,21 @@ export const deleteSmurf = (smurfId) => dispatch => {
         .then(res => dispatch({ type: FETCH_SMURFS_SUCCESS, payload: res.data }))
         .catch(err => dispatch({ type: FETCH_SMURFS_FAIL, payload: `${err.response.status}: ${err.response.statusText}` }))
 }
+
+export const START_EDIT = 'START_EDIT';
+
+export const startEdit = (smurfId) => {
+    return {
+        type: START_EDIT,
+        payload: smurfId
+    }
+}
+
+export const PUT_SMURF = 'PUT_SMURF';
+
+export const putSmurf = (smurfId, smurfData) => dispatch => {
+    dispatch({ type: PUT_SMURF });
+    axios.put(`http://localhost:3333/smurfs/${smurfId}`, smurfData)
+        .then(res => dispatch({ type: FETCH_SMURFS_SUCCESS, payload: res.data }))
+        .catch(err => dispatch({ type: FETCH_SMURFS_FAIL, payload: `${err.response.status}: ${err.response.statusText}` }))
+}

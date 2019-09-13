@@ -18,7 +18,6 @@ const SmurfForm = (props) => {
         e.preventDefault();
         post({ ...smurf, id: Date.now() });
     }
-    console.log(smurf);
 
     return (
         <div>

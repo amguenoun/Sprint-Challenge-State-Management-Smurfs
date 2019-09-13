@@ -6,6 +6,8 @@ import {
     POST_SMURF_SUCCESS,
     POST_SMURF_FAIL,
     DELETE_SMURF,
+    START_EDIT,
+    PUT_SMURF,
 } from '../actions'
 
 const initialState = {
@@ -14,6 +16,8 @@ const initialState = {
     isPosting: false,
     error: '',
     postError: '',
+    isEditing: false,
+    editId: '',
 }
 
 export const reducer = (state = initialState, action) => {
@@ -57,6 +61,18 @@ export const reducer = (state = initialState, action) => {
         case DELETE_SMURF:
             return {
                 ...state,
+                error: '',
+            }
+        case START_EDIT:
+            return {
+                ...state,
+                isEditing: true,
+                editId: action.payload
+            };
+        case PUT_SMURF:
+            return {
+                ...state,
+                isEdting: false,
                 error: '',
             }
         default:
