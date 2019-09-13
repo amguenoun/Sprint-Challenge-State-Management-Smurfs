@@ -23,7 +23,10 @@ const SmurfList = (props) => {
     return (
         <div>
             {props.isEditing ? <EditForm /> : null}
-            {props.smurfs.map(smurf => <Smurf smurf={smurf} key={smurf.id} handleEdit={handleEdit} handleDelete={handleDelete} />)}
+            <div className='smurf-container'>
+                {props.smurfs.map(smurf => <Smurf smurf={smurf} key={smurf.id} handleEdit={handleEdit} handleDelete={handleDelete} />)}
+            </div>
+
         </div>
     )
 }
