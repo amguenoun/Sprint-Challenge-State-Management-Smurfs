@@ -18,6 +18,7 @@ const initialState = {
     postError: '',
     isEditing: false,
     editId: '',
+    editSmurf: {},
 }
 
 export const reducer = (state = initialState, action) => {
@@ -69,13 +70,15 @@ export const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 isEditing: true,
-                editId: action.payload
+                editId: action.payload,
+                editSmurf: state.smurfs.filter(item => item.id === action.payload)[0],
             };
         case PUT_SMURF:
             return {
                 ...state,
                 isEdting: false,
                 error: '',
+                editSmurf: { name: '', age: '', height: '' },
             }
         default:
             return state;

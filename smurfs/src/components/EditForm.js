@@ -4,9 +4,11 @@ import { connect } from 'react-redux';
 import { putSmurf } from '../store/actions';
 
 const EditForm = (props) => {
-    const [smurf, setSmurf] = useState(props.smurf[0]);
+    const [smurf, setSmurf] = useState(props.editSmurf);
+    const [change, setChange] = useState(0);
 
     const handleChange = e => {
+        setChange(1);
         setSmurf({
             ...smurf,
             [e.target.name]: e.target.value,
@@ -17,7 +19,9 @@ const EditForm = (props) => {
         e.preventDefault();
         props.putSmurf(props.editId, smurf);
     }
-
+    if (smurf !== props.editSmurf && change === 0) {
+        setSmurf(props.editSmurf);
+    }
     return (
         <div>
             <form onSubmit={handleSubmit}>
@@ -33,7 +37,7 @@ const EditForm = (props) => {
 const mapPropsToState = state => {
     return {
         editId: state.editId,
-        smurf: state.smurfs.filter(item => item.id === state.editId),
+        editSmurf: state.editSmurf,
     }
 }
 
