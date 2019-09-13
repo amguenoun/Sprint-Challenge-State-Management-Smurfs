@@ -5,6 +5,7 @@ import {
     POST_SMURF_START,
     POST_SMURF_SUCCESS,
     POST_SMURF_FAIL,
+    DELETE_SMURF,
 } from '../actions'
 
 const initialState = {
@@ -53,6 +54,11 @@ export const reducer = (state = initialState, action) => {
                 isPosting: false,
                 postError: action.payload,
             };
+        case DELETE_SMURF:
+            return {
+                ...state,
+                error: '',
+            }
         default:
             return state;
     }

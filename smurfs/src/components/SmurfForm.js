@@ -1,16 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
 
 import { postSmurf } from '../store/actions';
 
 const SmurfForm = (props) => {
     const [smurf, setSmurf] = useState({ name: '', age: '', height: '' });
-    const [smurfPackage, setSmurfPackage] = useState({});
     const post = props.postSmurf;
-
-    useEffect(() => {
-        post(smurfPackage);
-    }, [post, smurfPackage])
 
     const handleChange = e => {
         setSmurf({
@@ -21,7 +16,7 @@ const SmurfForm = (props) => {
 
     const handleSubmit = e => {
         e.preventDefault();
-        setSmurfPackage({ ...smurf, id: Date.now() });
+        post({ ...smurf, id: Date.now() });
     }
     console.log(smurf);
 

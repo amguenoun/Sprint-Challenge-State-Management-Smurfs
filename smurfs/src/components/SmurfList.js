@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 
-import { fetchSmurfs } from '../store/actions';
+import { fetchSmurfs, deleteSmurf } from '../store/actions';
 import Smurf from './Smurf';
 
 const SmurfList = (props) => {
@@ -11,9 +11,15 @@ const SmurfList = (props) => {
         fetch();
     }, [fetch])
 
+
+    const handleDelete = (id) => {
+        props.deleteSmurf(id);
+    }
+
+
     return (
         <div>
-            {props.smurfs.map(smurf => <Smurf smurf={smurf} key={smurf.id} />)}
+            {props.smurfs.map(smurf => <Smurf smurf={smurf} key={smurf.id} handleDelete={handleDelete} />)}
         </div>
     )
 }
@@ -24,4 +30,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, { fetchSmurfs })(SmurfList);
+export default connect(mapStateToProps, { fetchSmurfs, deleteSmurf })(SmurfList);
