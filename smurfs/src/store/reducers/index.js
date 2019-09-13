@@ -32,7 +32,9 @@ export const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 isFetching: false,
-                smurfs: action.payload
+                smurfs: action.payload,
+                isEditing: false,
+                editID: '',
             };
         case FETCH_SMURFS_FAIL:
             return {

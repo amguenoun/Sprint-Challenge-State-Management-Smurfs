@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 
-import { postSmurf } from '../store/actions';
+import { putSmurf } from '../store/actions';
 
-const SmurfForm = (props) => {
-    const [smurf, setSmurf] = useState({ name: '', age: '', height: '' });
+const EditForm = (props) => {
+    const [smurf, setSmurf] = useState(props.smurf[0]);
 
     const handleChange = e => {
         setSmurf({
@@ -15,8 +15,7 @@ const SmurfForm = (props) => {
 
     const handleSubmit = e => {
         e.preventDefault();
-        props.postSmurf({ ...smurf, id: Date.now() });
-        setSmurf({ name: '', age: '', height: '' });
+        props.putSmurf(props.editId, smurf);
     }
 
     return (
@@ -25,10 +24,17 @@ const SmurfForm = (props) => {
                 <input type='text' value={smurf.name} name='name' onChange={handleChange} placeholder='Name' />
                 <input type='text' value={smurf.age} name='age' onChange={handleChange} placeholder='Age' />
                 <input type='text' value={smurf.height} name='height' onChange={handleChange} placeholder='Height' />
-                <button type='submit'>Submit</button>
+                <button type='submit'>Complete Edit</button>
             </form>
         </div>
     )
 }
 
-export default connect(null, { postSmurf })(SmurfForm);
+const mapPropsToState = state => {
+    return {
+        editId: state.editId,
+        smurf: state.smurfs.filter(item => item.id === state.editId),
+    }
+}
+
+export default connect(mapPropsToState, { putSmurf })(EditForm);
